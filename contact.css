@@ -355,9 +355,3 @@ footer {
   cursor: pointer;
   font-size: 0.9rem;
 }
-
-.footer-scroll-top span {
-  display: block;
-  font-size: 1.2rem;
-  margin-bottom: 0.25rem;
-}

@@ -22,11 +22,6 @@
                   سایر موارد
                   <img src="images/arrow-down.png" alt="arrow-down-logo" />
                 </a>
-                <!--                 <ul class="dropdown-menu">
-                  <li><a href="#" target="_blank">نمیدونم یک</a></li>
-                  <li><a href="#" target="_blank">نمیدونم دو</a></li>
-                  <li><a href="#" target="_blank">نمیدونم سه</a></li>
-                </ul> -->
               </li>
             </ul>
           </nav>
@@ -93,16 +88,16 @@
       <section id="call-box">
         <div class="form-box">
           <h2 class="form-title">فرم تماس با ما</h2>
-          <form>
+          <form action="" method="" novalidate>
             <div class="form-container">
               <div class="form-right">
                 <input type="text" placeholder="نام و نام خانوادگی" />
-                <input type="email" placeholder="ایمیل" />
+                <input type="email" placeholder="ایمیل"/>
                 <select>
-                  <option>موضوع</option>
-                  <option>پشتیبانی</option>
-                  <option>رزرو</option>
-                  <option>سایر</option>
+                  <option value="" disabled selected hidden>موضوع</option>
+                  <option value="پشتیبانی">پشتیبانی</option>
+                  <option value="رزرو">رزرو</option>
+                  <option value="سایر">سایر</option>
                 </select>
               </div>
               <div class="form-left">
@@ -164,5 +159,6 @@
         </div>
       </section>
     </footer>
+    <script src="contact-us.js" defer></script>
   </body>
 </html>
