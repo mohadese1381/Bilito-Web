@@ -90,4 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  const tabs = document.querySelectorAll("#main-navbar .tab");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("tabhover"));
+      tab.classList.add("tabhover");
+    });
+  });
 });
