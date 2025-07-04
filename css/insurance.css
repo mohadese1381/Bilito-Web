@@ -9,7 +9,7 @@
 .search-box-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 30px; 
   padding: 0 16px;
 }
 
@@ -24,7 +24,7 @@
   direction: rtl;
   z-index: 10;
   width: 800px;
-  margin: -80px auto 20px;
+  margin: -80px auto 20px; 
   position: relative;
 }
 
@@ -34,11 +34,13 @@
   flex-direction: column;
   justify-content: center;
   border: 1px solid #363434;
-  border-radius: 10px;
-  padding: 20px 14px 10px 14px;
+  border-radius: 10px; 
+  padding: 20px 14px 10px 14px; 
   min-width: 140px;
   font-size: 14px;
   background-color: white;
+  box-sizing: border-box; 
+  flex: 1; 
 }
 
 .search-item-title {
@@ -47,20 +49,36 @@
   right: 12px;
   background-color: white;
   padding: 0 4px;
-  font-size: 12px;
+  font-size: 14px;
   color: #666;
+  display: block; 
+  z-index: 1;
 }
 
 .search-input {
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 14px; 
   background-color: transparent;
   text-align: right;
   direction: rtl;
   font-weight: bold;
   padding: 0;
   margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  color: black; 
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  background-image: none;
+}
+
+.search-input::placeholder {
+  color: #a0a0a0; 
+  font-weight: normal;
 }
 
 .search-button {
@@ -68,7 +86,7 @@
   color: #fff;
   border: none;
   padding: 12px 20px;
-  border-radius: 6px;
+  border-radius: 6px; 
   font-size: 16px;
   cursor: pointer;
   display: flex;
@@ -76,6 +94,7 @@
   justify-content: center;
   gap: 8px;
   width: 180px;
+  flex-shrink: 0; 
 }
 
 .search-button img {
@@ -83,6 +102,10 @@
   height: 16px;
 }
 
+/* ------------------------------------------ */
+.mobile-search-title {
+  display: none; 
+}
 /* ------------------------------------------ */
 
 section {
@@ -215,7 +238,7 @@ summary::-webkit-details-marker {
   margin-right: 10px;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 8px solid #000; /* فلش رو به پایین */
+  border-top: 8px solid #000; 
   transition: transform 0.3s ease;
 }
 
@@ -229,4 +252,204 @@ summary::-webkit-details-marker {
   color: #444;
   padding-top: 8px;
   line-height: 1.8;
+}
+
+/* --- Media Queries for Responsive Design - Insurance Page --- */
+
+@media (max-width: 768px) {
+  .hero img {
+    max-height: 180px;
+    object-fit: cover;
+    z-index: 5;
+  }
+
+  .search-box-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+    margin-top: 0; 
+  }
+
+  .search-box {
+    flex-direction: column;
+    align-items: stretch;
+    width: calc(100% - 20px); 
+    max-width: none; 
+    margin: 20px auto 30px; 
+    padding: 0; 
+    gap: 12px;
+    box-shadow: none; 
+    background-color: transparent; 
+    border-radius: 0; 
+  }
+
+  .search-item {
+    border: 1px solid #363434;
+    border-radius: 8px; 
+    padding: 14px; 
+    width: 100%;
+    background-color: white; 
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-item-title {
+    display: none; 
+  }
+
+  .search-input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: transparent;
+    text-align: right;
+    direction: rtl;
+    padding: 0 25px 0 0; 
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    color: #333;
+
+    background-image: url("../assets/icons/arrow-down.png");
+    background-repeat: no-repeat;
+    background-position: left 10px center;
+    background-size: 16px;
+    cursor: pointer;
+
+    &::placeholder {
+      color: #333;
+      font-weight: bold;
+      font-size: 16px;
+      opacity: 1;
+    }
+    &::-moz-placeholder {
+      color: #333;
+      font-weight: bold;
+      font-size: 16px;
+      opacity: 1;
+    }
+  }
+
+  .search-button {
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .mobile-search-title {
+    display: block; 
+    text-align: right;
+    color: #1d91cc; 
+    font-size: 16px; 
+    margin-top: 10px; 
+    margin-right: 20px;
+  }
+
+  section {
+    margin-bottom: 30px;
+  }
+
+  .insurance-table-section {
+    margin-top: 0;
+    padding: 0 10px;
+  }
+
+  .insurance-container {
+    flex-direction: column;
+    background-color: #eaf6fc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(92, 140, 157, 0.15);
+  }
+
+  .insurance-image {
+    flex: none;
+    width: 100%;
+    order: -1;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .insurance-image img {
+    max-height: 150px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .insurance-table {
+    padding: 15px;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .insurance-table table {
+    width: 600px;
+    min-width: 100%;
+    font-size: 0.85rem;
+    border: none;
+  }
+
+  .insurance-table th {
+    padding: 10px 5px;
+  }
+
+  .insurance-table td {
+    padding: 8px 5px;
+  }
+
+  /* FAQ Section */
+  .faq-title {
+    margin: 30px auto 20px;
+    text-align: center;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+  }
+
+  .faq-box {
+    margin: auto 20px;
+    padding: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-question {
+    font-size: 16px;
+  }
+
+  .faq-item[open] .faq-question {
+    font-size: 15px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+  }
+}
+
+/* Adjustments for very small screens (e.g., iPhone 5/SE) */
+@media (max-width: 480px) {
+  .search-item {
+    padding: 12px;
+  }
+  .search-input {
+    font-size: 15px;
+    background-size: 14px;
+    &::placeholder {
+      font-size: 15px;
+    }
+    &::-moz-placeholder {
+      font-size: 15px;
+    }
+  }
+  .search-button {
+    padding: 12px 15px;
+  }
+  .mobile-search-title {
+    font-size: 16px; 
+  }
 }
