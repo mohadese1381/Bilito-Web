@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بلیطو - رزرو بلیط هواپیما</title>
+    <link rel="stylesheet"  href="css/style.css">
+    <link rel="stylesheet"  href="css/homepage.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <script src="js/main.js" defer></script>
+    <script src="js/homepage.js" defer></script>
+    
+</head>
+<body>
+    <div id="header"></div>
+    
+    <section class="hero-section">  
+    </section>
+    <div class="search-box">
+        <div class="flight-tabs">
+            <div class="tab-group">
+                <div class="tab active" id="tab-international">
+                    <div class="tab-icon">
+                        <img class="flight-icon" src="assets/icons/airplane-vertical-on.png" alt="flight icon" />
+                    </div>
+                    <span>پرواز خارجی</span>
+                </div>
+                
+                <div class="tab inactive" id="tab-domestic">
+                    <div class="tab-icon">
+                        <img class="flight-icon" src="assets/icons/airplane-vertical.png" alt="flight icon" />
+                    </div>
+                    <span>پرواز داخلی</span>
+                </div>
+            </div>
+        </div>
+        <div class="trip-type-pills" style="margin-top: 16px; justify-content: flex-start;">
+            <div class="pill">رفت</div>
+            <div class="pill">رفت و برگشت</div>
+            <div class="pill">چند مسیره</div>
+        </div>
+
+        <div class="search-form">
+            <div class="origin-dest-row">
+                <div class="input-group">
+                    <input type="text" class="input-field" placeholder="مبدا">
+                </div>
+                <img src="assets/icons/arrow-2.png" alt="swap" class="swap-btn" />
+                <div class="input-group">
+                    <input type="text" class="input-field" placeholder="مقصد">
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="input-field" placeholder="تاریخ رفت و برگشت">
+            </div>
+            <div class="input-group">
+                <input type="text" class="input-field" placeholder="تعداد مسافر">
+            </div>
+            <div class="input-group">
+                <input type="text" class="input-field" placeholder="کلاس پرواز">
+            </div>
+            <button class="search-btn">
+                <img src="assets/icons/search-normal.png" alt="search" style="width: 16px; height: 16px;" />
+                جستجو
+            </button>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="search-history">
+            <div class="search-history-header">
+                <div class="history-caption">
+                    <img src="assets/icons/History.png" alt="history icon" class="history-icon" />
+                    <div class="history-title">تاریخچه جستجو</div>
+                </div>
+                <button class="clear-all">پاک کردن همه</button>
+            </div>
+            <div class="search-history-content">
+                <button class="nav-button">
+                    <img src="assets/icons/arrow-right.png" alt="arrow right" class="nav-icon" />
+                </button>
+                <div class="history-items">
+                    <div class="history-box">
+                        <div class="history-text">تهران به استانبول</div>
+                        <img src="assets/icons/close-square.png" alt="close" class="close-icon" />
+                    </div>
+                    <div class="history-box">
+                        <div class="history-text">تهران به دبی</div>
+                        <img src="assets/icons/close-square.png" alt="close" class="close-icon" />
+                    </div>
+                    <div class="history-box">
+                        <div class="history-text">شیراز به تهران</div>
+                        <img src="assets/icons/close-square.png" alt="close" class="close-icon" />
+                    </div>
+                    <div class="history-box">
+                        <div class="history-text">تهران به شیراز</div>
+                        <img src="assets/icons/close-square.png" alt="close" class="close-icon" />
+                    </div>
+                    <div class="history-box">
+                        <div class="history-text">مشهد به تهران</div>
+                        <img src="assets/icons/close-square.png" alt="close" class="close-icon" />
+                    </div>
+                    <div class="history-box">
+                        <div class="history-text">اصفهان به تهران</div>
+                        <img src="assets/icons/close-square.png" alt="close" class="close-icon" />
+                    </div>
+                </div>
+                <button class="nav-button">
+                    <img src="assets/icons/arrow-left.png" alt="arrow left" class="nav-icon" />
+                </button>
+            </div>
+        </div>
+
+        <!-- Travel Section -->
+        <div class="travel-section">
+            <div class="travel-column">
+                <div class="travel-card travel-card-large card-kish">
+                    <div class="blur-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-title">بهترین فصل شنا</div>
+                        <div class="card-button">
+                            <div class="card-button-text">خرید بلیط پروازهای کیش</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="travel-column">
+                <div class="travel-card travel-card-large card-turkey">
+                    <div class="blur-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-title">سفر به ترکیه</div>
+                        <div class="card-button">
+                            <div class="card-button-text">خرید بلیط پروازهای ترکیه</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="travel-column">
+                <div class="travel-card travel-card-small card-shiraz">
+                    <div class="blur-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-title">دنیایی از تاریخ و هنر</div>
+                        <div class="card-button">
+                            <div class="card-button-text">خرید بلیط پروازهای شیراز</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="travel-card travel-card-small card-dubai">
+                    <div class="blur-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-title">شگفتی در صحرا</div>
+                        <div class="card-button">
+                            <div class="card-button-text">خرید بلیط پروازهای دبی</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="popular-flights-section">
+                <div class="section-header">
+                    <h2 class="section-title">پرطرفدار ترین پروازهای داخلی</h2>
+                    <div class="filter-chips">
+                        <div class="chip active">تهران</div>
+                        <div class="chip">مشهد</div>
+                        <div class="chip">شیراز</div>
+                        <div class="chip active">کیش</div>
+                    </div>
+                </div>
+                <div class="cards-container">
+                    <div class="flight-card">
+                        <div class="card-content">
+                            <div class="route-section">
+                                <span class="destination">شیراز</span>
+                                <img src="assets/icons/airplane-horizontal.png" alt="airplane" class="airplane-icon" />
+                                <span class="origin">تهران</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-info">
+                                    <span class="currency">تومان</span>
+                                    <span class="price-amount">۱,۷۰۰,۰۰۰</span>
+                                </div>
+                                <span class="price-label">شروع قیمت از:</span>
+                            </div>
+                        </div>
+                        <div class="card-image" style="background-image: url('assets/images/azadi.png');"></div>
+                    </div>
+                    <div class="flight-card">
+                        <div class="card-content">
+                            <div class="route-section">
+                                <span class="destination">کیش</span>
+                                <img src="assets/icons/airplane-horizontal.png" alt="airplane" class="airplane-icon" />
+                                <span class="origin">تهران</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-info">
+                                    <span class="currency">تومان</span>
+                                    <span class="price-amount">۲,۵۰۰,۰۰۰</span>
+                                </div>
+                                <span class="price-label">شروع قیمت از:</span>
+                            </div>
+                        </div>
+                        <div class="card-image" style="background-image: url('assets/images/kish.png');"></div>
+                    </div>
+                    <div class="flight-card">
+                        <div class="card-content">
+                            <div class="route-section">
+                                <span class="origin">تهران</span>
+                                <img src="assets/icons/airplane-horizontal.png" alt="airplane" class="airplane-icon" />
+                                <span class="destination">مشهد</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-info">
+                                    <span class="currency">تومان</span>
+                                    <span class="price-amount">۱,۵۰۰,۰۰۰</span>
+                                </div>
+                                <span class="price-label">شروع قیمت از:</span>
+                            </div>
+                        </div>
+                        <div class="card-image" style="background-image: url('assets/images/mashhad.png');"></div>
+                    </div>
+                    <div class="flight-card">
+                        <div class="card-content">
+                            <div class="route-section">
+                                <span class="destination">مشهد</span>
+                                <img src="assets/icons/airplane-horizontal.png" alt="airplane" class="airplane-icon" />
+                                <span class="origin">تهران</span>
+                            </div>
+                            <div class="price-section">
+                                <div class="price-info">
+                                    <span class="currency">تومان</span>
+                                    <span class="price-amount">۱,۵۰۰,۰۰۰</span>
+                                </div>
+                                <span class="price-label">شروع قیمت از:</span>
+                            </div>
+                        </div>
+                        <div class="card-image" style="background-image: url('assets/images/milad.png');"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+        <div class="faq-section">
+            <h2>سوالات متداول</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    در صورت نداشتن رزرو بلیط هواپیما امکان استفاده از وجود دارد؟
+                </div>
+                <div class="faq-answer">
+                    بلیط تمامی خطوط هوایی دنیا در سایت بلیطو موجود است و چه پروازهای ایرانی باشد و چه پروازهای خارجی تعداد زیادی از شرکت‌های هواپیمایی داخلی وجود دارند همانند ماهان، ایران ایر، آسمان، کاسپین، ایران اویژن کاسپین، ایرانایر، فلای پرشیا، قشم ایر، تابان، زاگرس و... نیز رزرو بلیط بلیطو امکان‌پذیر می‌باشد.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    نرخ بلیط هواپیما برای نوزادان و کودکان زیر ۱۲ سال چگونه است؟
+                </div>
+                <div class="faq-answer">
+                    نرخ بلیط نوزادان و کودکان بر اساس سن آنها محاسبه می‌شود. نوزادان زیر 2 سال معمولاً 10 درصد نرخ بزرگسال و کودکان 2 تا 12 سال 75 درصد نرخ بزرگسال پرداخت می‌کنند.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    آیا پس از خرید اینترنتی بلیط هواپیما امکان تغییر نام یا تاریخ وجود دارد؟
+                </div>
+                <div class="faq-answer">
+                    امکان تغییر نام در بلیط هواپیما وجود ندارد، اما تغییر تاریخ بر اساس قوانین هر شرکت هواپیمایی و نوع بلیط امکان‌پذیر است که ممکن است شامل جریمه باشد.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    هنگامی که از سایت خرید بلیط هواپیما رزرو بلیط را انجام می‌دهیم امکان انتخاب صندلی مورد نظرمان وجود دارد؟
+                </div>
+                <div class="faq-answer">
+                    بله، در اکثر شرکت‌های هواپیمایی امکان انتخاب صندلی در زمان رزرو یا پس از آن از طریق سایت شرکت هواپیمایی فراهم است. این سرویس ممکن است رایگان یا با هزینه اضافی باشد.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    بلیط بوز چه کشورها ایرانی‌هایی را می‌توانیم در سایت بلیطو جستجو و خریداری کنیم؟
+                </div>
+                <div class="faq-answer">
+                    در سایت بلیطو امکان جستجو و خرید بلیط به بیش از 200 کشور دنیا وجود دارد. شما می‌توانید بلیط پروازهای داخلی و بین‌المللی را به راحتی رزرو کنید.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    چطور تاریخ پرواز را تغییر دهیم؟
+                </div>
+                <div class="faq-answer">
+                    برای تغییر تاریخ پرواز می‌توانید از طریق پنل کاربری خود در سایت یا تماس با پشتیبانی اقدام کنید. توجه داشته باشید که تغییر تاریخ ممکن است شامل جریمه و اختلاف نرخ باشد.
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="advantages">
+            <div class="advantage-item">
+                <div class="icon-container">
+                    <img src="assets/icons/card-pos.png" alt="Card Icon">
+                </div>
+                <div class="advantage-title">کمترین نرخ خرید بلیط</div>
+            </div>
+            
+            <div class="advantage-item">
+                <div class="icon-container">
+                    <img src="assets/icons/online-services.png" alt="Online Services Icon">
+                </div>
+                <div class="advantage-title">خدمات آنلاین</div>
+            </div>
+            
+            <div class="advantage-item">
+                <div class="icon-container">
+                    <img src="assets/icons/support.png" alt="Support Icon">
+                </div>
+                <div class="advantage-title">پاسخگویی ۲۴ ساعته</div>
+            </div>
+            
+            <div class="advantage-item">
+                <div class="icon-container">
+                    <img src="assets/icons/accessibility.png" alt="Easy Access Icon">
+                </div>
+                <div class="advantage-title">دسترسی آسان و راحت</div>
+            </div>
+        </div>
+
+    <div id="footer"></div>
+</body>
+</html>
