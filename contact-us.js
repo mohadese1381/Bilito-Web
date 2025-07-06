@@ -93,9 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tabs = document.querySelectorAll("#main-navbar .tab");
 
-  tabs.forEach(tab => {
+  tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("tabhover"));
+      tabs.forEach((t) => t.classList.remove("tabhover"));
       tab.classList.add("tabhover");
     });
   });

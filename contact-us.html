@@ -4,10 +4,14 @@
     <title>صفحه ارتباط با ما</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="contact.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <header>
       <section class="container">
+        <div class="hamburger">
+          <img src="images/menu.svg" alt="menu" />
+        </div>
         <div id="logo">
           <img src="images/logo.png" alt="لوگو بیلیتو" />
         </div>
@@ -42,9 +46,12 @@
           <img src="images/call.png" alt="call-logo" />
         </div>
         <div id="login-logout-btn">
-          <button>
+          <button id="desktopUser">
             <img src="images/user.png" alt="user" />
             ورود / ثبت‌نام
+          </button>
+          <button id="mobileUser">
+            <img src="images/mobileUser.png" alt="user" />
           </button>
         </div>
       </section>
@@ -106,7 +113,7 @@
               <div class="form-right">
                 <input type="text" placeholder="نام و نام خانوادگی" />
                 <input type="email" placeholder="ایمیل" />
-                <select style="width: 370px; height: 50px">
+                <select>
                   <option value="" disabled selected hidden>موضوع</option>
                   <option value="پشتیبانی">پشتیبانی</option>
                   <option value="رزرو">رزرو</option>
@@ -122,7 +129,7 @@
         </div>
       </section>
     </main>
-    <footer>
+     <footer class="footer-desktop">
       <section class="footer-top">
         <div id="contentoftop">
           <h3>اپلیکیشن بیلیتو</h3>
@@ -172,13 +179,63 @@
           </div>
         </div>
       </section>
-      <section class="footer-bottom">
-        <div class="footer-scroll-top">
-          <img src="images/arrow-circle-up.png" alt="arrow-circle-up" />
-          <p>بازگشت به بالا</p>
-        </div>
-      </section>
     </footer>
+
+    </footer>
+    <footer class="footer-mobile">
+      <div class="mobile-top">
+        <div class="mobile-contact">
+          <p>
+            آدرس دفتر مرکزی: تهران، میدان آزادی، خیابان آزادی، خیابان جیحون، طوس
+            غربی.
+          </p>
+          <p>تلفن پشتیبانی: ۰۲۱-۳۲ ۷۶ ۵۴ ۹۸</p>
+        </div>
+        <div class="mobile-logo">
+          <img src="images/logo.png" alt="لوگو بیلیتو" />
+        </div>
+      </div>
+      <div class="mobile-links-and-buttons">
+        <div class="mobile-useful-links">
+          <h4>لینک‌های مفید</h4>
+          <ul>
+            <li>درباره ما</li>
+            <li>تماس با ما</li>
+            <li>استرداد بلیط</li>
+            <li>راهنمای خرید بلیط</li>
+            <li>قوانین و مقررات</li>
+          </ul>
+        </div>
+        <div class="mobile-store-buttons">
+          <img src="images/palystore.png" alt="Play Store" />
+          <img src="images/applestore.png" alt="App Store" />
+        </div>
+      </div>
+      <div class="mobile-badges">
+        <img src="images/1.png" alt="Badge 1" />
+        <img src="images/2.png" alt="Badge 2" />
+        <img src="images/3.png" alt="Badge 3" />
+        <img src="images/4.png" alt="Badge 4" />
+        <img src="images/5.png" alt="Badge 5" />
+      </div>
+      <div class="mobile-social">
+        <img src="images/twitter.svg" alt="Twitter" />
+        <img src="images/facebook.svg" alt="Facebook" />
+        <img src="images/insta.svg" alt="Instagram" />
+        <img src="images/youtube.svg" alt="YouTube" />
+        <img src="images/in.svg" alt="LinkedIn" />
+        <img src="images/tel.svg" alt="Telegram" />
+      </div>
+      <div class="mobile-email">
+        <a href="mailto:Bilito@gmail.com">Bilito@Gmail.Com</a>
+      </div>
+    </footer>
+    <section class="footer-bottom">
+      <div class="footer-scroll-top">
+        <img src="images/arrow-circle-up.png" alt="arrow-circle-up" />
+        <p>بازگشت به بالا</p>
+      </div>
+    </section>
     <script src="contact-us.js" defer></script>
   </body>
 </html>
