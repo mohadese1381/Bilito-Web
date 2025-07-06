@@ -31,7 +31,6 @@ domesticTab.addEventListener('click', () => {
 });
 
 
-
 // DELETE ALL history items
 const clearAllBtn = document.querySelector('.clear-all');
 const historyItemsContainer = document.querySelector('.history-items');
@@ -115,3 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
+document.querySelectorAll('.tab-mobile').forEach(tab => {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.tab-mobile').forEach(t => {
+        t.classList.remove('active');
+      });
+      this.classList.add('active');
+    });
+  });

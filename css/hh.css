@@ -10,10 +10,6 @@ body {
     background-color: #FFFFFF;
 }
 
-.tab-group-mobile {
-    display: none;
-  }
-
 #header-placeholder {
     height: 70px;
     background-color: #2196F3;
@@ -138,8 +134,13 @@ body {
     gap: 16px;
 }
 
+.trip-type-pills {
+    display: flex;
+    gap: 16px;
+}
+
 .pill {
-    min-width: 100px;
+    min-width: 100px;         /* enough to hold the longest one like رفت و برگشت */
     padding: 8px 16px;
     height: 40px;
     border-radius: 8px;
@@ -163,6 +164,8 @@ body {
     font-weight: 600;
     border: none;
 }
+
+
 
 .search-form {
     display: flex;
@@ -448,9 +451,11 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 24px;
+    /* width: 1224px;
+    height: 328px;
+    margin: 0 auto; */
     margin-top: 50px;
 }
-
 .travel-column {
     display: flex;
     flex-direction: column;
@@ -464,7 +469,6 @@ body {
     align-self: stretch;
     flex-grow: 0;
 }
-
 .travel-card {
     position: relative;
     width: 392px;
@@ -474,31 +478,31 @@ body {
     align-self: stretch;
     flex-grow: 1;
 }
-
 .travel-card-small {
     height: 152px;
 }
-
 .travel-card-large {
     height: 328px;
 }
-
+/* Shiraz Travel Card */
 .card-shiraz {
     background: rgb(91, 95, 97) url('../assets/images/shiraz-image.png') no-repeat center center / cover;
 }
 
+/* Dubai Travel Card */
 .card-dubai {
     background: rgb(91, 95, 97) url('../assets/images/dubai-image.png') no-repeat center center / cover;
 }
 
+/* Turkey Travel Card */
 .card-turkey {
     background: rgb(91, 95, 97) url('../assets/images/turkey-image.png') no-repeat center center / cover;
 }
 
+/* Kish Travel Card */
 .card-kish {
     background: rgb(91, 95, 97) url('../assets/images/kish-image.png') no-repeat center center / cover;
 }
-
 .blur-overlay {
     position: absolute;
     width: 187px;
@@ -508,17 +512,14 @@ body {
     filter: blur(22px);
     backdrop-filter: blur(25px);
 }
-
 .travel-card-small .blur-overlay {
     right: 193px;
     top: 73px;
 }
-
 .travel-card-large .blur-overlay {
     right: 194px;
     bottom: 73px;
 }
-
 .card-content {
     position: absolute;
     display: flex;
@@ -529,7 +530,6 @@ body {
     right: 22px;
     bottom: 24px;
 }
-
 .card-title {
     font-style: normal;
     font-weight: 700;
@@ -544,7 +544,6 @@ body {
     flex-grow: 0;
     font-family: 'Vazirmatn', sans-serif;
 }
-
 .card-button {
     box-sizing: border-box;
     display: flex;
@@ -563,12 +562,10 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
 .card-button:hover {
     background: rgba(1, 8, 70, 0.3);
     transform: translateY(-1px);
 }
-
 .card-button-text {
     font-style: normal;
     font-weight: 500;
@@ -583,12 +580,39 @@ body {
     white-space: nowrap;
     font-family: 'Vazirmatn', sans-serif;
 }
+/* @media (max-width: 1280px) {
+    .travel-section {
+        width: 90%;
+        gap: 16px;
+    }
+    .travel-column {
+        width: calc(33.333% - 16px);
+        gap: 16px;
+    }
+    .travel-card {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .travel-section {
+        flex-direction: column;
+        height: auto;
+        gap: 16px;
+    }
+    .travel-column {
+        width: 100%;
+        height: auto;
+    }
+    .travel-card {
+        width: 100%;
+        height: 200px !important;
+    }
+} */
 
 .main-container {
     max-width: 1528px;
     margin: 70px auto;
 }
-
 .popular-flights-section {
     display: flex;
     flex-direction: column;
@@ -599,15 +623,14 @@ body {
     width: 100%;
     height: auto;
 }
-
 .section-header {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: flex-start; /* Aligns items to the right in RTL */
     padding: 0px;
-    gap: 16px;
-    width: 321px;
-    height: 76px;
+    gap: 16px; /* Creates vertical space between title and chips */
+    width: 321px; /* Restoring original width */
+    height: 76px;  /* Restoring original height */
 }
 
 .section-title {
@@ -634,7 +657,6 @@ body {
     width: auto;
     height: auto;
 }
-
 .chip {
     display: flex;
     justify-content: center;
@@ -643,7 +665,7 @@ body {
     height: 32px;
     background: #FFFFFF;
     border: 1px solid #DFDFDF;
-    border-radius: 4px;
+    border-radius: 4px; /* For rectangular shape */
     font-size: 18px;
     color: #606060;
     cursor: pointer;
@@ -651,19 +673,16 @@ body {
 }
 
 .chip.active {
-    background: #E8F4FA;
+    background: #E8F4FA; /* Light blue background */
     border: none;
     color: #1D91CC;
 }
-
 .chip:hover {
     background: #f0f0f0;
 }
-
 .chip.active:hover {
     background: #d4ebf7;
 }
-
 .cards-container {
     display: flex;
     flex-direction: row;
@@ -674,7 +693,6 @@ body {
     width: 100%;
     height: auto;
 }
-
 .flight-card {
     display: flex;
     flex-direction: row-reverse;
@@ -687,7 +705,6 @@ body {
     border-radius: 4px;
     overflow: hidden;
 }
-
 .card-content {
     display: flex;
     flex-direction: column;
@@ -709,14 +726,12 @@ body {
     color: #202020;
     font-family: 'Vazirmatn', sans-serif;
 }
-
 .airplane-icon {
     width: 24px;
     height: 24px;
     display: inline-block;
     object-fit: contain;
 }
-
 .origin {
     font-weight: 400;
     font-size: 16px;
@@ -736,7 +751,6 @@ body {
     padding: 0px;
     gap: 4px;
 }
-
 .currency {
     font-weight: 400;
     font-size: 10px;
@@ -745,7 +759,6 @@ body {
     color: #202020;
     font-family: 'Vazirmatn', sans-serif;
 }
-
 .price-amount {
     font-weight: 400;
     font-size: 16px;
@@ -756,7 +769,6 @@ body {
     color: #202020;
     font-family: 'Vazirmatn', sans-serif;
 }
-
 .price-label {
     font-weight: 400;
     font-size: 10px;
@@ -766,7 +778,6 @@ body {
     flex-grow: 1;
     font-family: 'Vazirmatn', sans-serif;
 }
-
 .card-image {
     width: 80px;
     height: 88px;
@@ -798,10 +809,11 @@ body {
     padding: 8px 16px;
     gap: 8px;
     width: 208px;
-    height: auto;
+    height: auto; /* Let padding define the height */
     background: #FFFFFF;
     border-bottom: 1px solid #EDEDED;
 }
+
 
 .popular-flights-section .flight-card .card-content .price-section {
     position: static;
@@ -811,14 +823,15 @@ body {
     padding: 8px 16px;
     gap: 8px;
     width: 208px;
-    height: auto;
+    height: auto; /* Let padding define the height */
     background: #FFFFFF;
 }
+
 
 .faq-section {
     background: white;
     border-radius: 0px;
-    padding: 0px;
+    padding: px;
     box-shadow: none;
 }
 
@@ -842,7 +855,7 @@ body {
     position: relative;
     transition: color 0.3s;
     font-family: 'Vazirmatn', sans-serif;
-    font-weight: 600;
+    font-weight: 600; /* Add this line */
 }
 
 .faq-question:hover {
@@ -917,6 +930,89 @@ body {
     white-space: nowrap;
 }
 
+/* @media (max-width: 1024px) {
+    .search-form {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .swap-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-btn {
+        width: 100%;
+    }
+    
+    .tab-group {
+        gap: 20px;
+    }
+    
+    .swap-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-section h2 {
+        font-size: 18px;
+    }
+    .faq-question {
+        font-size: 14px;
+    }
+    .faq-answer {
+        font-size: 12px;
+    }
+
+    .advantages {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 30px;
+    }
+    .advantage-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1280px) {
+    .search-history {
+        width: 100%;
+        max-width: 1224px;
+    }
+    .search-history-header {
+        width: 100%;
+        gap: auto;
+        justify-content: space-between;
+    }
+    .search-history-content {
+        width: 100%;
+    }
+    .history-items {
+        width: auto;
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .history-items {
+        gap: 8px;
+    }
+    .history-box {
+        width: auto;
+        min-width: 120px;
+        padding: 8px 12px;
+    }
+    .history-text {
+        font-size: 12px;
+    }
+} */
+
 .origin-dest-row {
     display: flex;
     align-items: center;
@@ -927,603 +1023,88 @@ body {
 
 .content-wrapper {
     max-width: 1224px;
-    width: 95%;
+    width: 95%; /* Adds responsiveness */
     margin-left: auto;
     margin-right: auto;
-    padding-top: 48px;
+    padding-top: 48px; /*Adds space between sections*/
 }
 
-/* Mobile Responsive Design - Matching the provided image exactly */
+/* ========================================================= */
+/* =================== RESPONSIVE CODE ===================== */
+/* ========================================================= */
+
 @media (max-width: 768px) {
-    body {
-        background-color: #FFFFFF;
-    }
+    /* --- General Layout --- */
+    .content-wrapper { margin: 32px auto; padding: 0 16px; }
 
-    /* Hero Section - Reduced height */
-    .hero-section {
-        height: 140px;
-        background-position: center 35%;
-    }
+    /* --- 1. Hero Section (Plane Photo) --- */
+    .hero-section { height: 180px; background-position: center 25%; }
 
-    /* Search Box - Positioned lower with smaller margin */
-    .search-box {
-        margin: -40px 16px 0 16px;
-        padding: 12px;
-        width: auto;
-        max-width: none;
-    }
+    /* --- 2. Search Box --- */
+    .search-box { margin: -60px 16px 0 16px; padding: 16px; width: auto; }
+    .flight-tabs { display: none; }
+    .pill { height: 36px; padding: 0 16px; font-size: 13px; flex-shrink: 0; }
+    .trip-type-pills { overflow-x: auto; padding-bottom: 10px; -ms-overflow-style: none; scrollbar-width: none;}
+    .trip-type-pills::-webkit-scrollbar { display: none; }
+    .search-form { flex-direction: column; }
+    .origin-dest-row { flex-direction: column; width: 100%; }
+    .swap-btn { display: none; }
+    .input-field { height: 44px; }
 
-    /* Hide flight tabs on mobile */
-    .flight-tabs {
-        display: none;
-    }
+    /* --- 3. Search History --- */
+    .search-history { margin: 32px 0 0 0; padding: 0 16px; }
+    .history-title { font-size: 16px; }
+    .history-items { overflow-x: auto; padding-bottom: 10px; -ms-overflow-style: none; scrollbar-width: none; }
+    .history-items::-webkit-scrollbar { display: none; }
 
-    /* Trip type pills - Horizontal scrollable */
-    .trip-type-pills {
-        margin-top: 0;
-        overflow-x: auto;
-        padding-bottom: 10px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-
-    .trip-type-pills::-webkit-scrollbar {
-        display: none;
-    }
-
-    .pill {
-        height: 36px;
-        padding: 0 16px;
-        font-size: 13px;
-        flex-shrink: 0;
-        min-width: 80px;
-    }
-
-    /* Search form - Vertical layout */
-    .search-form {
-        flex-direction: column;
-        margin-top: 16px;
-        gap: 12px;
-    }
-
-    .origin-dest-row {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .swap-btn {
-        display: none;
-    }
-
-    .input-field {
-        height: 44px;
-        font-size: 13px;
-        padding: 10px 14px;
-    }
-
-    .search-btn {
-        width: 100%;
-        height: 44px;
-        font-size: 13px;
-        padding: 10px;
-    }
-
-    /* Main content with mobile padding */
-    .main-content {
-        padding: 32px 0 0 0;
-    }
-
-    /* Search History - Mobile layout */
-    .search-history {
-        margin: 0 0 24px 0;
-        padding: 0 16px;
-        height: auto;
-    }
-
-    .history-title {
-        font-size: 16px;
-        width: auto;
-    }
-
-    .history-caption {
-        width: auto;
-    }
-
-    .search-history-content {
-        gap: 16px;
-    }
-
-    .history-items {
-        width: auto;
-        flex: 1;
-        overflow-x: auto;
-        padding-bottom: 10px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-
-    .history-items::-webkit-scrollbar {
-        display: none;
-    }
-
-    .history-box {
-        width: auto;
-        min-width: 120px;
-        padding: 6px 10px;
-        flex-shrink: 0;
-    }
-
-    .history-text {
-        font-size: 11px;
-        white-space: nowrap;
-    }
-
-    /* Travel Section - Horizontal scroll layout */
+    /* --- 4. Travel Section (Horizontal Scroll) --- */
     .travel-section {
-        flex-direction: row;
         overflow-x: auto;
         padding: 0 16px 16px 16px;
         margin-left: -16px;
         margin-right: -16px;
-        margin-top: 24px;
         scroll-snap-type: x mandatory;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        gap: 16px;
+        -ms-overflow-style: none; scrollbar-width: none;
     }
-
-    .travel-section::-webkit-scrollbar {
-        display: none;
-    }
-
-    .travel-column {
-        width: auto;
-        height: auto;
-        flex: none;
-        gap: 16px;
-    }
-
+    .travel-section::-webkit-scrollbar { display: none; }
     .travel-card {
-        width: 220px;
-        height: 160px;
+        width: 80%;
         flex-shrink: 0;
         scroll-snap-align: start;
-    }
-
-    .travel-card-small,
-    .travel-card-large {
         height: 180px;
     }
+    .travel-card .card-content h3 { font-size: 18px; }
 
-    .card-title {
-        font-size: 16px;
-    }
+    /* --- 5. Popular Flights --- */
+    .popular-flights-section { padding: 0 16px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .section-title { font-size: 18px; }
+    .filter-chips { overflow-x: auto; width: 100%; padding-bottom: 10px; }
 
-    .card-button-text {
-        font-size: 14px;
-    }
-
-    /* Popular Flights Section - Mobile layout */
-    .main-container {
-        margin: 40px auto;
-        max-width: none;
-    }
-
-    .popular-flights-section {
-        padding: 0 16px;
-        gap: 24px;
-    }
-
-    .section-header {
-        width: 100%;
-        height: auto;
-    }
-
-    .section-title {
-        font-size: 18px;
-    }
-
-    .filter-chips {
-        overflow-x: auto;
-        width: 100%;
-        padding-bottom: 10px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-
-    .filter-chips::-webkit-scrollbar {
-        display: none;
-    }
-
-    .chip {
-        flex-shrink: 0;
-        font-size: 14px;
-        min-width: 60px;
-    }
-
-    .cards-container {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .flight-card {
-        width: 100%;
-        height: 70px;
-    }
-
-    .card-content {
-        width: calc(100% - 80px);
-        height: 80px;
-        right: 10px;
-        bottom: 10px;
-    }
-
-    .popular-flights-section .flight-card .card-content .route-section {
-        width: 100%;
-        height: 40px;
-        padding: 8px 12px;
-    }
-
-    .popular-flights-section .flight-card .card-content .price-section {
-        width: 100%;
-        height: 40px;
-        padding: 8px 12px;
-    }
-
-    .card-image {
-        width: 70px;
-        height: 70px;
-    }
-
-    .destination, .origin {
-        font-size: 13px;
-    }
-
-    .price-amount {
-        font-size: 13px;
-    }
-
-    .currency, .price-label {
-        font-size: 10px;
-    }
-
-    /* Advantages Section - Mobile layout */
-    .advantages {
-        margin-top: 32px;
-        margin-bottom: 32px;
-        height: auto;
-        padding: 20px 16px;
-        flex-direction: row;
-        gap: 16px;
-        overflow-x: auto;
+    /* --- 6. Advantages Section (Horizontal Scroll) --- */
+    .advantages-section { padding: 32px 0; }
+    .advantages-container {
         justify-content: flex-start;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-
-    .advantages::-webkit-scrollbar {
-        display: none;
-    }
-
-    .advantage-item {
-        width: auto;
-        min-width: 200px;
-        flex-shrink: 0;
-    }
-
-    .advantage-title {
-        font-size: 16px;
-        white-space: normal;
-        text-align: center;
-    }
-
-    .icon-container {
-        width: 70px;
-        height: 70px;
-        border-radius: 20px;
-    }
-
-    .icon-container img {
-        width: 40px;
-        height: 40px;
-    }
-
-    /* FAQ Section - Mobile layout */
-    .faq-section {
-        padding: 0px 16px;
-    }
-
-    .faq-section h2 {
-        font-size: 20px;
-        margin-bottom: 16px;
-    }
-
-    .faq-question {
-        font-size: 13px;
-        padding: 12px 0;
-    }
-
-    .faq-answer {
-        font-size: 12px;
-        padding-bottom: 12px;
-    }
-
-    /* Content wrapper - Mobile */
-    .content-wrapper {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
-    /* Hero content - Mobile */
-    .hero-content h1 {
-        font-size: 24px;
-        margin-bottom: 8px;
-    }
-
-    .hero-content p {
-        font-size: 16px;
-    }
-
-    /* Header placeholder - Mobile */
-    #header-placeholder {
-        font-size: 16px;
-        height: 60px;
-    }
-
-    /* Input group - Mobile */
-    .input-group {
-        flex: none;
-        width: 100%;
-    }
-
-    /* Navigation buttons - Mobile */
-    .nav-button {
-        width: 36px;
-        height: 36px;
-    }
-
-    .nav-icon {
-        width: 20px;
-        height: 20px;
-    }
-
-    /* Clear all button - Mobile */
-    .clear-all {
-        width: auto;
-        font-size: 14px;
-    }
-
-    /* History icon - Mobile */
-    .history-icon {
-        width: 20px;
-        height: 20px;
-    }
-
-    /* Close icon - Mobile */
-    .close-icon {
-        width: 14px;
-        height: 14px;
-    }
-
-    /* Blur overlay adjustments for mobile */
-    .travel-card-small .blur-overlay,
-    .travel-card-large .blur-overlay {
-        width: 150px;
-        height: 60px;
-        right: 15px;
-        bottom: 15px;
-    }
-
-    /* Card content adjustments for mobile */
-    .travel-card .card-content {
-        right: 16px;
-        bottom: 16px;
-    }
-
-    .card-button {
-        height: 32px;
-        padding: 4px 8px;
-    }
-
-    .card-button-text {
-        font-size: 11px;
-        line-height: 20px;
-    }
-
-    /* Airplane icon - Mobile */
-    .airplane-icon {
-        width: 20px;
-        height: 20px;
-    }
-
-    /* Route and price sections spacing */
-    .popular-flights-section .flight-card .card-content .route-section,
-    .popular-flights-section .flight-card .card-content .price-section {
-        gap: 6px;
-    }
-
-    /* Price info adjustments */
-    .price-info {
-        gap: 2px;
-    }
-
-    /* Tab adjustments for smaller screens */
-    .tab-icon {
-        width: 18px;
-        height: 18px;
-    }
-
-    .tab.active .tab-icon svg {
-        width: 18px;
-        height: 18px;
-    }
-
-    /* Search button icon */
-    .search-btn svg {
-        width: 14px;
-        height: 14px;
-    }
-
-    .tab-group-mobile {
-        display: flex;
-        gap: 8px;
-        margin-bottom: 16px;
-        width: 100%;
-      }
-      
-      .tab-mobile {
-        flex: 1;
-        padding: 10px 0;
-        text-align: center;
-        background: #F5F5F5;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 500;
-        color: #606060;
-        transition: all 0.3s ease;
-        border: none;
-      }
-      
-      .tab-mobile.active {
-        background: #1D91CC;
-        color: white;
-        font-weight: 600;
-      }
-    
-      /* Make popular flights horizontal */
-      .cards-container {
-        display: flex;
-        flex-direction: row;
         overflow-x: auto;
+        padding: 0 16px 16px 16px;
         scroll-snap-type: x mandatory;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        padding-bottom: 10px;
-        gap: 16px;
-      }
-      
-      .cards-container::-webkit-scrollbar {
-        display: none;
-      }
-      
-      .flight-card {
-        width: 280px;
-        flex-shrink: 0;
-        scroll-snap-align: start;
-      }
-    
-      /* Adjust hero image positioning */
-      .hero-section {
-        background-position: center 35%;
-      }
-
-      .trip-type-pills{
-        margin-top: 0;
-      }
-    
-      /* Fix alignment in search form */
-      .search-form {
-        gap: 12px;
-      }
-      
-      .input-field {
-        padding: 10px 14px;
-      }
-
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-    .hero-section {
-        height: 160px;
+        -ms-overflow-style: none; scrollbar-width: none;
     }
-
-    .search-box {
-        margin: -50px 12px 0 12px;
-        padding: 12px;
-    }
-
-    .pill {
-        min-width: 70px;
-        padding: 0 12px;
-        font-size: 12px;
-    }
-
-    .input-field {
-        height: 42px;
-        font-size: 13px;
-    }
-
-    .search-btn {
-        height: 42px;
-        font-size: 13px;
-    }
-
-    .hero-content h1 {
-        font-size: 20px;
-    }
-
-    .hero-content p {
-        font-size: 14px;
-    }
-
-    .travel-card {
-        width: 240px;
-        height: 160px;
-    }
-
-    .card-title {
-        font-size: 14px;
-    }
-
-    .section-title {
-        font-size: 16px;
-    }
-
-    .advantage-title {
-        font-size: 14px;
-    }
-
-    .advantages {
-        padding: 24px 12px;
-        gap: 24px;
-    }
-
-    .faq-section {
-        padding: 24px 12px;
-    }
-
-    .popular-flights-section {
-        padding: 0 12px;
-    }
-
-    .search-history {
-        padding: 0 12px;
-    }
-}
-
-/* Landscape mobile adjustments */
-@media (max-width: 768px) and (orientation: landscape) {
-    .hero-section {
-        height: 140px;
-        background-position: center 35%;
-      }
-      
-      .search-box {
-        margin: -50px 16px 0 16px;
-        padding: 12px;
-      }
-
-    .advantages {
-        flex-direction: row;
-        padding: 20px 16px;
-        gap: 16px;
-        overflow-x: auto;
-    }
-
+    .advantages-container::-webkit-scrollbar { display: none; }
     .advantage-item {
-        flex-shrink: 0;
-        width: 180px;
+        flex: 0 0 140px; /* Do not grow, do not shrink, base width 140px */
+        scroll-snap-align: center;
     }
+    .icon-container { width: 80px; height: 80px; }
+    .advantage-item h4 { font-size: 14px; }
+    
+    /* --- 7. FAQ Section (Boundary) --- */
+    .faq-section {
+        margin: 32px 0;
+        padding: 24px 16px;
+        border: 1px solid #EDEDED;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+    }
+    .faq-section h2 { text-align: right; font-size: 18px; }
 }
