@@ -1,126 +1,205 @@
-
-const pills = document.querySelectorAll('.trip-type-pills .pill');
-
-pills.forEach(pill => {
-    pill.addEventListener('click', () => {
-        pills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-    });
-});
-
-
-const internationalTab = document.getElementById('tab-international');
-const domesticTab = document.getElementById('tab-domestic');
-
-function activateTab(tabToActivate, tabToDeactivate, iconActive, iconInactive) {
-    tabToActivate.classList.add('active');
-    tabToActivate.classList.remove('inactive');
-    tabToActivate.querySelector('.flight-icon').src = iconActive;
-
-    tabToDeactivate.classList.remove('active');
-    tabToDeactivate.classList.add('inactive');
-    tabToDeactivate.querySelector('.flight-icon').src = iconInactive;
-}
-
-internationalTab.addEventListener('click', () => {
-    activateTab(internationalTab, domesticTab, 'assets/icons/airplane-vertical-on.png', 'assets/icons/airplane-vertical.png');
-});
-
-domesticTab.addEventListener('click', () => {
-    activateTab(domesticTab, internationalTab, 'assets/icons/airplane-vertical-on.png', 'assets/icons/airplane-vertical.png');
-});
-
-
-// DELETE ALL history items
-const clearAllBtn = document.querySelector('.clear-all');
-const historyItemsContainer = document.querySelector('.history-items');
-
-clearAllBtn.addEventListener('click', () => {
-    historyItemsContainer.innerHTML = ''; // remove all children
-});
-
-// DELETE SINGLE history item
-historyItemsContainer.addEventListener('click', function (event) {
-    if (event.target.classList.contains('close-icon')) {
-        const historyBox = event.target.closest('.history-box');
-        if (historyBox) {
-            historyBox.remove();
-        }
-    }
-});
-
-
-
-// منتظر بمانید تا تمام محتوای صفحه بارگذاری شود
 document.addEventListener('DOMContentLoaded', () => {
 
-    // انتخاب دقیق‌تر چیپ‌ها و کارت‌ها برای جلوگیری از تداخل با بخش‌های دیگر
-    const chips = document.querySelectorAll('.popular-flights-section .chip');
-    const flightCards = document.querySelectorAll('.popular-flights-section .flight-card');
+    // --------------------------------------------------
+    // 1. Trip Type Pills Logic
+    // --------------------------------------------------
+    const pills = document.querySelectorAll('.trip-type-pills .pill');
+    pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            pills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+        });
+    });
 
-    // تابع برای فیلتر کردن و به‌روزرسانی کارت‌ها
-    function filterAndStyleCards(selectedCity) {
-        flightCards.forEach(card => {
-            const citySpans = card.querySelectorAll('.origin, .destination');
-            let cardContainsCity = false;
+    // --------------------------------------------------
+    // 2. Desktop Flight Tabs Logic
+    // --------------------------------------------------
+    const internationalTab = document.getElementById('tab-international');
+    const domesticTab = document.getElementById('tab-domestic');
 
-            // ابتدا بررسی می‌کنیم که آیا کارت شامل شهر انتخاب شده هست یا نه
-            for (const span of citySpans) {
-                if (span.textContent.trim() === selectedCity) {
-                    cardContainsCity = true;
-                    break; // اگر پیدا شد، از حلقه خارج شو
+    if (internationalTab && domesticTab) {
+        const activateTab = (tabToActivate, tabToDeactivate, iconActive, iconInactive) => {
+            tabToActivate.classList.add('active');
+            tabToActivate.classList.remove('inactive');
+            tabToActivate.querySelector('.flight-icon').src = iconActive;
+
+            tabToDeactivate.classList.remove('active');
+            tabToDeactivate.classList.add('inactive');
+            tabToDeactivate.querySelector('.flight-icon').src = iconInactive;
+        };
+
+        internationalTab.addEventListener('click', () => {
+            activateTab(internationalTab, domesticTab, 'assets/icons/airplane-vertical-on.png', 'assets/icons/airplane-vertical.png');
+        });
+
+        domesticTab.addEventListener('click', () => {
+            activateTab(domesticTab, internationalTab, 'assets/icons/airplane-vertical-on.png', 'assets/icons/airplane-vertical.png');
+        });
+    }
+
+    // --------------------------------------------------
+    // 3. Mobile Flight Tabs Logic
+    // --------------------------------------------------
+    const mobileTabs = document.querySelectorAll('.tab-mobile');
+    mobileTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            mobileTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // --------------------------------------------------
+    // 4. Search History Logic
+    // --------------------------------------------------
+    const historyItemsContainer = document.querySelector('.history-items');
+    if (historyItemsContainer) {
+        // --- DELETE ALL history items ---
+        const clearAllBtn = document.querySelector('.clear-all');
+        if (clearAllBtn) {
+            clearAllBtn.addEventListener('click', () => {
+                historyItemsContainer.innerHTML = '';
+            });
+        }
+        
+        // --- DELETE SINGLE history item ---
+        historyItemsContainer.addEventListener('click', function(event) {
+            if (event.target.classList.contains('close-icon')) {
+                const historyBox = event.target.closest('.history-box');
+                if (historyBox) {
+                    historyBox.remove();
                 }
             }
+        });
 
-            // اگر کارت شامل شهر مورد نظر بود، آن را نمایش بده و استایلش را آپدیت کن
-            if (cardContainsCity) {
-                card.style.display = 'flex';
+        // --- SCROLL BUTTONS LOGIC (Corrected) ---
+        const scrollRightBtn = document.getElementById('scroll-right-btn');
+        const scrollLeftBtn = document.getElementById('scroll-left-btn');
+        if (scrollRightBtn && scrollLeftBtn) {
+            const isRTL = getComputedStyle(historyItemsContainer).direction === 'rtl';
+            const scrollAmount = 300;
 
-                // رنگبندی متن شهرها را آپدیت کن
-                citySpans.forEach(span => {
-                    if (span.textContent.trim() === selectedCity) {
-                        // شهر انتخاب شده را آبی کن (با افزودن کلاس origin)
-                        span.classList.add('origin');
-                        span.classList.remove('destination');
-                    } else {
-                        // شهر دیگر را مشکی کن (با افزودن کلاس destination)
-                        span.classList.add('destination');
-                        span.classList.remove('origin');
-                    }
+            scrollLeftBtn.addEventListener('click', () => {
+                historyItemsContainer.scrollBy({ 
+                    left: isRTL ? -scrollAmount : scrollAmount, 
+                    behavior: 'smooth' 
                 });
-            } else {
-                // در غیر این صورت، کارت را مخفی کن
-                card.style.display = 'none';
-            }
-        });
+            });
+
+            scrollRightBtn.addEventListener('click', () => {
+                historyItemsContainer.scrollBy({ 
+                    left: isRTL ? scrollAmount : -scrollAmount, 
+                    behavior: 'smooth' 
+                });
+            });
+        }
     }
 
-    // به هر چیپ یک event listener اضافه می‌کنیم
-    chips.forEach(chip => {
-        chip.addEventListener('click', () => {
-            // کلاس active را بین چیپ‌ها جابجا کن
-            chips.forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
+    // --------------------------------------------------
+    // 5. Popular Flights Filter Logic
+    // --------------------------------------------------
+    const chips = document.querySelectorAll('.popular-flights-section .chip');
+    const flightCards = document.querySelectorAll('.popular-flights-section .flight-card');
+    
+    if (chips.length > 0 && flightCards.length > 0) {
+        const filterAndStyleCards = (selectedCity) => {
+            flightCards.forEach(card => {
+                const citySpans = card.querySelectorAll('.origin, .destination');
+                let cardContainsCity = false;
 
-            const selectedCity = chip.textContent.trim();
-            filterAndStyleCards(selectedCity);
+                for (const span of citySpans) {
+                    if (span.textContent.trim() === selectedCity) {
+                        cardContainsCity = true;
+                        break;
+                    }
+                }
+
+                if (cardContainsCity) {
+                    card.style.display = 'flex';
+                    citySpans.forEach(span => {
+                        span.classList.toggle('origin', span.textContent.trim() === selectedCity);
+                        span.classList.toggle('destination', span.textContent.trim() !== selectedCity);
+                    });
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
+
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                filterAndStyleCards(chip.textContent.trim());
+            });
         });
+
+        const initiallyActiveChip = document.querySelector('.popular-flights-section .chip.active');
+        if (initiallyActiveChip) {
+            initiallyActiveChip.click();
+        }
+    }
+
+    // --------------------------------------------------
+    // 6. FAQ Accordion Logic
+    // --------------------------------------------------
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', () => {
+                const wasActive = item.classList.contains('active');
+                faqItems.forEach(otherItem => otherItem.classList.remove('active'));
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        }
     });
 
-    // برای نمایش اولیه صحیح، روی چیپ فعال پیش‌فرض کلیک می‌کنیم
-    const initiallyActiveChip = document.querySelector('.popular-flights-section .chip.active');
-    if (initiallyActiveChip) {
-        initiallyActiveChip.click();
+    // --------------------------------------------------
+    // 7. Search Form Logic (Alert, History, Swap)
+    // --------------------------------------------------
+    const searchForm = document.querySelector('.search-form');
+    if (searchForm) {
+        const inputFields = searchForm.querySelectorAll('.input-field');
+        const originInput = inputFields[0];
+        const destinationInput = inputFields[1];
+        const swapBtn = searchForm.querySelector('.swap-btn');
+        const searchBtn = searchForm.querySelector('.search-btn');
+        const historyItemsContainer = document.querySelector('.history-items');
+
+        // Swap origin and destination
+        if (swapBtn && originInput && destinationInput) {
+            swapBtn.addEventListener('click', () => {
+                const temp = originInput.value;
+                originInput.value = destinationInput.value;
+                destinationInput.value = temp;
+            });
+        }
+
+        // Search button logic
+        if (searchBtn && originInput && destinationInput && historyItemsContainer) {
+            searchBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Check all fields are filled
+                let allFilled = true;
+                inputFields.forEach(input => {
+                    if (!input.value.trim()) allFilled = false;
+                });
+                if (allFilled) {
+                    alert('در حال حاضر بلیط برای این سفر نداریم');
+                    // Add to history
+                    const from = originInput.value.trim();
+                    const to = destinationInput.value.trim();
+                    if (from && to) {
+                        const box = document.createElement('div');
+                        box.className = 'history-box';
+                        box.innerHTML = `<div class="history-text">${from} به ${to}</div><img src="assets/icons/close-square.png" alt="close" class="close-icon" />`;
+                        historyItemsContainer.prepend(box);
+                    }
+                }
+            });
+        }
     }
+
 });
-
-
-
-document.querySelectorAll('.tab-mobile').forEach(tab => {
-    tab.addEventListener('click', function() {
-      document.querySelectorAll('.tab-mobile').forEach(t => {
-        t.classList.remove('active');
-      });
-      this.classList.add('active');
-    });
-  });

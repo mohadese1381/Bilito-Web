@@ -386,20 +386,22 @@ body {
 .history-items {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
     align-items: center;
-    padding: 0px;
     gap: 16px;
-    width: 1070px;
-    height: 40px;
-    overflow: hidden;
+    overflow-x: auto;
+    /* حذف width و flex: 1 و justify-content */
+    min-width: 0;
+    scroll-behavior: smooth;
+}
+.history-items::-webkit-scrollbar {
+    display: none; 
 }
 
 .history-box {
     box-sizing: border-box;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
     padding: 8px 16px;
     gap: 16px;
@@ -941,8 +943,8 @@ body {
 
     /* Hero Section - Reduced height */
     .hero-section {
-        height: 140px;
-        background-position: center 35%;
+        height: 180px;
+        background-position: center 25%;
     }
 
     /* Search Box - Positioned lower with smaller margin */
@@ -1526,4 +1528,255 @@ body {
         flex-shrink: 0;
         width: 180px;
     }
+}
+
+@media (max-width: 768px) {
+  /* Trip type pills: full width, segmented control style */
+  .trip-type-pills {
+    display: flex;
+    width: 100%;
+    gap: 0;
+    overflow-x: unset;
+    padding-bottom: 0;
+  }
+  .pill {
+    flex: 1;
+    min-width: unset;
+    border-radius: 0;
+    border-right: 1px solid #1D91CC;
+    border-left: none;
+    text-align: center;
+  }
+  
+  /* Mobile tabs: no icons, desktop style, full width */
+  .tab-group-mobile {
+    display: flex;
+    width: 100%;
+    gap: 0;
+    margin-bottom: 16px;
+  }
+  .tab-mobile {
+    flex: 1;
+    padding: 12px 0;
+    text-align: center;
+    background: #fff;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #606060;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  .tab-mobile.active {
+    background: #fff;
+    color: #1D91CC;
+    font-weight: 700;
+    border-bottom: 2px solid #1D91CC;
+  }
+
+  /* Advantages: all items visible, wrap if needed */
+  .advantages {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    overflow-x: unset;
+    padding: 16px 0;
+  }
+  .advantage-item {
+    min-width: 120px;
+    flex: 1 1 120px;
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+    /* Trip type pills: separate, spaced, full width */
+    .trip-type-pills {
+      display: flex;
+      width: 100%;
+      gap: 12px; /* فاصله بین دکمه‌ها */
+      justify-content: space-between;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .pill {
+      flex: 1 1 0;
+      min-width: 0;
+      border-radius: 8px;
+      border: 1px solid #1D91CC;
+      border-right: 1.5px solid #1D91CC;
+      border-left: none;
+      background: #fff;
+      color: #0C3A52;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    
+    .pill.active {
+      background: #1D91CC;
+      color: #fff;
+      border: 1.5px solid #1D91CC;
+      border-right: 1.5px solid #1D91CC;
+    }
+  
+    /* Tabs: full width, no icon, underline for active */
+    .tab-group-mobile {
+      display: flex;
+      width: 100%;
+      gap: 0;
+      margin-bottom: 16px;
+    }
+    .tab-mobile {
+      flex: 1;
+      padding: 12px 0;
+      text-align: center;
+      background: #fff;
+      border-radius: 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #606060;
+      border: none;
+      border-bottom: 2px solid #ededed;
+      transition: all 0.3s ease;
+    }
+    .tab-mobile.active {
+      color: #1D91CC;
+      font-weight: 700;
+      border-bottom: 2px solid #1D91CC;
+      background: #fff;
+    }
+  
+    /* Advantages: all in one row, shrink if needed */
+    .advantages {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 4px;
+      padding: 12px 0;
+      overflow-x: hidden;
+    }
+    .advantage-item {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: none;
+      margin: 0 2px;
+      padding: 0;
+    }
+    .icon-container {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+    }
+    .icon-container img {
+      width: 32px;
+      height: 32px;
+    }
+    .advantage-title {
+      font-size: 12px;
+      line-height: 1.3;
+      margin-top: 4px;
+    }
+  }
+
+  /* ================== FAQ Accordion Styles ================== */
+
+/* Remove the old arrow pseudo-element */
+.faq-question::after {
+    content: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.faq-arrow-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0; /* Prevents the icon from shrinking */
+    margin-right: 15px; /* Adds space between text and icon */
+}
+
+.faq-answer {
+    line-height: 1.8;
+    color: #666;
+    display: none; /* Hidden by default */
+}
+
+/* --- Active State Styles --- */
+
+.faq-item.active .faq-question {
+    color: #1D91CC; /* Blue color for active question text */
+}
+
+.faq-item.active .faq-arrow-icon {
+    transform: rotate(180deg); /* Rotates the icon 180 degrees */
+}
+
+.faq-item.active .faq-answer {
+    display: block; /* Shows the answer */
+}
+
+.faq-section {
+    border: 1px solid #eee; /* افزودن بردر مشابه خطوط داخلی */
+    border-radius: 8px;      /* گرد کردن گوشه‌ها */
+    padding: 24px;           /* ایجاد فاصله داخلی */
+    margin-top: 48px;        /* ایجاد فاصله از بخش بالایی */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* افزودن سایه ملایم */
+}
+
+/* Fix for .history-items scroll */
+.history-items {
+    min-width: 0;
+    flex-shrink: 1;
+}
+
+@media (max-width: 768px) {
+  .history-items {
+    /* حذف width و flex: 1 */
+    min-width: 0;
+    overflow-x: auto;
+  }
+  .history-box {
+    flex-shrink: 0;
+    min-width: 120px;
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .trip-type-pills {
+    background: #fff;
+    padding: 4px 0; /* Optional: add a little vertical space */
+    border-radius: 12px; /* Optional: for a soft container look */
+  }
+  .pill {
+    flex: 1 1 0;
+    min-width: 0;
+    border-radius: 8px;
+    border: 1.5px solid #1D91CC;
+    background: #fff;
+    color: #0C3A52;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .pill.active {
+    background: #1D91CC;
+    color: #fff;
+    border: 1.5px solid #1D91CC;
+  }
 }
