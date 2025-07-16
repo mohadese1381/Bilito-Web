@@ -3,6 +3,16 @@
     <div id="logo">
       <img src="assets\icons\logo.png" alt="لوگو بیلیتو" />
     </div>
+
+    <div class="mobile-notification-icon">
+      <img src="assets\icons\user2.png" alt="اعلانات" />
+    </div>
+
+    <button class="hamburger-menu-button" aria-label="Open mobile menu">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </button>
     <div id="navbar">
       <nav class="main-nav">
         <ul>
@@ -14,11 +24,6 @@
               سایر موارد
               <img src="assets\icons\arrow-down.png" alt="arrow-down-logo" />
             </a>
-            <!--                 <ul class="dropdown-menu">
-                <li><a href="#" target="_blank">نمیدونم یک</a></li>
-                <li><a href="#" target="_blank">نمیدونم دو</a></li>
-                <li><a href="#" target="_blank">نمیدونم سه</a></li>
-              </ul> -->
           </li>
         </ul>
       </nav>
@@ -34,7 +39,32 @@
       </button>
     </div>
   </section>
-  <!-- <div id="header-picture">
-    <img src="images/home-page-screen.jpg" alt="عکس سفر" />
-  </div> -->
+  <div class="mobile-menu-overlay">
+    <div class="mobile-menu-header">
+      <img
+        src="assets\icons\logo.png"
+        alt="لوگو بیلیتو"
+        class="mobile-menu-logo"
+      />
+      <button class="close-mobile-menu-button">&times;</button>
+    </div>
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="#">صفحه اصلی</a></li>
+        <li><a href="#">بیمه مسافرتی</a></li>
+        <li><a href="#">سفرهای من</a></li>
+        <li><a href="#">سایر موارد</a></li>
+        <li class="mobile-supporter">
+          <span>پشتیبانی ۴۰۴۱-۰۲۱</span>
+          <img src="assets\icons\call.png" alt="call-logo" />
+        </li>
+        <li class="mobile-login-button">
+          <button>
+            <img src="assets\icons\user.png" alt="user" />
+            ورود / ثبت‌نام
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
